@@ -103,7 +103,7 @@ Set `ALLOWED_ORIGINS` to the client's domain(s) so only their site can call the 
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `GEMINI_API_KEY` / `GEMINI_MODEL` | - / `gemini-2.5-flash` | Google Gemini key and model |
+| `GEMINI_API_KEY` / `GEMINI_MODEL` | - / `gemini-3.5-flash` | Google Gemini key and model |
 | `OPENAI_API_KEY` / `OPENAI_MODEL` | - / `gpt-4o-mini` | OpenAI, used if no Gemini key is set |
 | `BUSINESS_NAME`, `BUSINESS_CONTACT` | sample practice | Used in answers and in the "not in the documents" reply |
 | `DATA_DIR` | `data` | Documents, cached web pages, unanswered questions, leads |
