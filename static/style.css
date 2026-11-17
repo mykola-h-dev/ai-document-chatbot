@@ -1,0 +1,56 @@
+:root {
+  --brand: #1f5f8b;
+  --brand-dark: #164766;
+  --accent: #f2a541;
+  --bg: #f7fafc;
+  --text: #1d2733;
+  --muted: #5b6b7b;
+  --card: #ffffff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); }
+a { color: inherit; text-decoration: none; }
+
+/* --- Landing page --- */
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 6vw; background: #fff; box-shadow: 0 1px 0 #e3e9ef; }
+.logo { font-weight: 700; color: var(--brand); font-size: 1.15rem; }
+.logo::first-letter { color: var(--accent); }
+nav a { margin-left: 22px; color: var(--muted); font-size: .95rem; }
+.btn-small { background: var(--brand); color: #fff !important; padding: 8px 14px; border-radius: 999px; }
+.hero { padding: 80px 6vw 60px; background: linear-gradient(120deg, #e6f1f8, #fdf6ec); }
+.hero > div { max-width: 620px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; color: var(--brand); font-weight: 600; }
+.hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin: .2em 0; line-height: 1.1; }
+.lead { color: var(--muted); font-size: 1.1rem; line-height: 1.5; }
+.btn { display: inline-block; margin-top: 12px; background: var(--brand); color: #fff; padding: 12px 22px; border-radius: 999px; font-weight: 600; }
+.demo-note { font-size: .85rem; color: var(--muted); margin-top: 18px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 40px 6vw 120px; }
+.cards article { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: 0 2px 10px rgba(20, 40, 60, .06); }
+.cards h3 { margin-top: 0; color: var(--brand); }
+.cards p { color: var(--muted); line-height: 1.5; }
+
+/* --- Chat widget --- */
+.chat-toggle { position: fixed; right: 24px; bottom: 24px; width: 60px; height: 60px; border-radius: 50%; border: 0; background: var(--brand); color: #fff; cursor: pointer; box-shadow: 0 8px 24px rgba(31, 95, 139, .35); }
+.chat-toggle:hover { background: var(--brand-dark); }
+.chat { position: fixed; right: 24px; bottom: 96px; width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100vh - 120px)); background: #fff; border-radius: 18px; box-shadow: 0 16px 48px rgba(20, 40, 60, .22); display: flex; flex-direction: column; overflow: hidden; }
+.chat.hidden { display: none; }
+.chat-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--brand); color: #fff; }
+.chat-head .mode { display: block; font-size: .75rem; opacity: .85; margin-top: 2px; }
+.chat-head button { background: none; border: 0; color: #fff; font-size: 1.6rem; cursor: pointer; line-height: 1; }
+.chat-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: #f9fbfd; }
+.msg { max-width: 85%; padding: 10px 13px; border-radius: 14px; line-height: 1.45; font-size: .93rem; white-space: pre-wrap; }
+.msg.bot { background: #fff; border: 1px solid #e3e9ef; align-self: flex-start; border-bottom-left-radius: 4px; }
+.msg.user { background: var(--brand); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+.msg.not-found { border-color: var(--accent); background: #fff8ee; }
+.msg .source { display: block; margin-top: 6px; font-size: .75rem; color: var(--muted); }
+.msg.typing { color: var(--muted); font-style: italic; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 12px 0; }
+.chips button { border: 1px solid #cfdbe6; background: #fff; border-radius: 999px; padding: 5px 10px; font-size: .78rem; cursor: pointer; color: var(--brand); }
+.chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #eef2f6; }
+.chat-form input { flex: 1; border: 1px solid #cfdbe6; border-radius: 999px; padding: 10px 14px; font-size: .93rem; outline: none; }
+.chat-form input:focus { border-color: var(--brand); }
+.chat-form button { border: 0; background: var(--brand); color: #fff; border-radius: 999px; padding: 0 16px; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 600px) { nav a:not(.btn-small) { display: none; } }

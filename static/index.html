@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maple Street Dental (demo)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Sample landing page for a FICTIONAL business; the chat widget is the actual demo. -->
+  <header class="site-header">
+    <div class="logo">&#9679; Maple Street Dental</div>
+    <nav><a href="#">Services</a><a href="#">Prices</a><a href="#">Our team</a><a href="#" class="btn-small">Book online</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Family &amp; emergency dentistry</p>
+        <h1>Healthy smiles for the whole family</h1>
+        <p class="lead">Check-ups, hygiene, fillings and same-day emergency slots, five minutes from the town centre.</p>
+        <a href="#" class="btn">Book an appointment</a>
+        <p class="demo-note">Demo site for a fictional practice. Try the chat in the corner.</p>
+      </div>
+    </section>
+    <section class="cards">
+      <article><h3>Check-ups</h3><p>Thorough exams for adults and children, with X-rays when needed.</p></article>
+      <article><h3>Hygiene</h3><p>Scale and polish appointments with our dental hygienists.</p></article>
+      <article><h3>Emergencies</h3><p>Same-day emergency slots every weekday morning.</p></article>
+    </section>
+  </main>
+
+  <!-- Chat widget -->
+  <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>
+  </button>
+  <section id="chat" class="chat hidden" aria-live="polite">
+    <div class="chat-head">
+      <div>
+        <strong>Ask Maple Street Dental</strong>
+        <span id="chat-mode" class="mode">connecting...</span>
+      </div>
+      <button id="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chat-log" class="chat-log">
+      <div class="msg bot">Hi! I can answer questions about our hours, prices, insurance, bookings and emergencies. What would you like to know?</div>
+    </div>
+    <div class="chips" id="chips">
+      <button>What are your opening hours?</button>
+      <button>How much is a root canal?</button>
+      <button>Do you take insurance?</button>
+    </div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" type="text" maxlength="500" placeholder="Type your question..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>
