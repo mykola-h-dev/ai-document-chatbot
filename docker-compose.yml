@@ -1,0 +1,18 @@
+# docker compose up --build   ->  http://localhost:8000  (admin: /admin, needs ADMIN_PASSWORD)
+services:
+  chatbot:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false        # without .env it runs in offline demo mode
+    environment:
+      HOST: 0.0.0.0
+      DATA_DIR: /app/data
+    volumes:
+      - chatbot-data:/app/data  # uploaded documents, unanswered questions, leads
+    restart: unless-stopped
+
+volumes:
+  chatbot-data:

@@ -1,0 +1,28 @@
+:root { --brand: #1f5f8b; --bg: #f4f7fa; --text: #1d2733; --muted: #5b6b7b; --line: #e3e9ef; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 24px; background: var(--brand); color: #fff; }
+header .muted { color: #d4e4f0; }
+main { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; padding: 16px 24px 40px; max-width: 1280px; margin: 0 auto; }
+.card { background: #fff; border-radius: 14px; padding: 16px 18px; box-shadow: 0 1px 4px rgba(20, 40, 60, .08); overflow-x: auto; }
+.wide { grid-column: 1 / -1; }
+h2 { font-size: 1.05rem; margin: 0 0 10px; color: var(--brand); }
+.row-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.muted { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #e8f0f7; color: var(--brand); font-size: .75rem; }
+.err { color: #b3261e; font-size: .8rem; }
+button { border: 0; background: var(--brand); color: #fff; border-radius: 8px; padding: 7px 12px; font-weight: 600; cursor: pointer; }
+button.ghost { background: #e8f0f7; color: var(--brand); }
+button.danger { background: #fbe9e7; color: #b3261e; }
+.forms { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; }
+.forms form { display: flex; align-items: flex-end; gap: 8px; flex: 1 1 320px; }
+.forms label { display: flex; flex-direction: column; gap: 4px; flex: 1; color: var(--muted); font-size: .82rem; }
+.forms input { border: 1px solid #cfdbe6; border-radius: 8px; padding: 7px 9px; font-size: .9rem; }
+.msg { min-height: 1.2em; margin: 10px 0 0; }
+pre { background: #0f1b26; color: #d6e6f2; padding: 14px; border-radius: 10px; overflow-x: auto; font-size: .82rem; }
+.empty { color: var(--muted); font-style: italic; }
+@media (max-width: 520px) { main { grid-template-columns: 1fr; padding: 12px; } header { padding: 12px; } }

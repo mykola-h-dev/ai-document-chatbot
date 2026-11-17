@@ -20,7 +20,7 @@
         <h1>Healthy smiles for the whole family</h1>
         <p class="lead">Check-ups, hygiene, fillings and same-day emergency slots, five minutes from the town centre.</p>
         <a href="#" class="btn">Book an appointment</a>
-        <p class="demo-note">Demo site for a fictional practice. Try the chat in the corner.</p>
+        <p class="demo-note">Demo site for a fictional practice. Try the chat in the corner, or open <a href="/admin"><u>/admin</u></a>.</p>
       </div>
     </section>
     <section class="cards">
@@ -30,32 +30,17 @@
     </section>
   </main>
 
-  <!-- Chat widget -->
-  <button id="chat-toggle" class="chat-toggle" aria-label="Open chat">
-    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>
-  </button>
-  <section id="chat" class="chat hidden" aria-live="polite">
-    <div class="chat-head">
-      <div>
-        <strong>Ask Maple Street Dental</strong>
-        <span id="chat-mode" class="mode">connecting...</span>
-      </div>
-      <button id="chat-close" aria-label="Close chat">&times;</button>
-    </div>
-    <div id="chat-log" class="chat-log">
-      <div class="msg bot">Hi! I can answer questions about our hours, prices, insurance, bookings and emergencies. What would you like to know?</div>
-    </div>
-    <div class="chips" id="chips">
-      <button>What are your opening hours?</button>
-      <button>How much is a root canal?</button>
-      <button>Do you take insurance?</button>
-    </div>
-    <form id="chat-form" class="chat-form">
-      <input id="chat-input" type="text" maxlength="500" placeholder="Type your question..." autocomplete="off" required>
-      <button type="submit">Send</button>
-    </form>
+  <section class="embed">
+    <h3>Add this chat to any website with one line</h3>
+    <pre>&lt;script src="https://your-server/widget.js"
+        data-title="Ask Maple Street Dental" data-color="#1f5f8b"&gt;&lt;/script&gt;</pre>
   </section>
 
-  <script src="/static/chat.js"></script>
+  <!-- The whole chat widget: one script tag. -->
+  <script src="/widget.js"
+          data-title="Ask Maple Street Dental"
+          data-color="#1f5f8b"
+          data-greeting="Hi! I can answer questions about our hours, prices, insurance, aftercare and bookings. What would you like to know?"
+          data-chips="What are your opening hours?|How much is a root canal?|Can I use a straw after an extraction?"></script>
 </body>
 </html>

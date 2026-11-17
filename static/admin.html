@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot admin</title>
+  <link rel="stylesheet" href="/static/admin.css">
+</head>
+<body>
+  <header>
+    <div><strong id="biz">Chatbot</strong> <span class="muted">admin</span></div>
+    <div class="muted" id="summary">loading...</div>
+  </header>
+  <main>
+    <section class="card wide">
+      <div class="row-head"><h2>Knowledge sources</h2>
+        <div><button id="reindex">Re-index</button> <button id="refetch" class="ghost">Re-fetch web pages</button></div></div>
+      <table><thead><tr><th>Source</th><th>Type</th><th>Chunks</th><th></th></tr></thead><tbody id="sources"></tbody></table>
+      <div class="forms">
+        <form id="upload"><label>Upload a document (PDF, DOCX, TXT, MD)<input type="file" accept=".pdf,.docx,.txt,.md" required></label><button>Upload</button></form>
+        <form id="addurl"><label>Add a web page<input type="url" placeholder="https://example.com/about" required></label><button>Add page</button></form>
+      </div>
+      <p id="msg" class="msg" role="status"></p>
+    </section>
+    <section class="card">
+      <h2>Questions the bot could not answer</h2>
+      <p class="muted">Add the missing information to a document, then re-index.</p>
+      <table><thead><tr><th>Question</th><th>Times</th><th>Last asked</th></tr></thead><tbody id="unanswered"></tbody></table>
+    </section>
+    <section class="card">
+      <h2>Leads from the chat</h2>
+      <table><thead><tr><th>When</th><th>Name</th><th>Email</th><th>Question</th></tr></thead><tbody id="leads"></tbody></table>
+    </section>
+    <section class="card wide">
+      <h2>Embed code</h2>
+      <pre id="embed"></pre>
+    </section>
+  </main>
+  <script src="/static/admin.js"></script>
+</body>
+</html>

@@ -28,6 +28,8 @@ SYNONYMS = {
     "address": "location", "where": "location", "located": "location",
     "phone": "contact", "email": "contact", "call": "contact",
     "weekend": "saturday", "late": "notice",
+    "take": "accept", "accepted": "accept", "insured": "insurance",
+    "voucher": "gift", "language": "speak", "languages": "speak", "wheelchair": "accessible",
 }
 
 TOKEN_RE = re.compile(r"[a-z0-9$]+")
@@ -35,9 +37,17 @@ TOKEN_RE = re.compile(r"[a-z0-9$]+")
 
 def _stem(word):
     """Very light stemming so 'prices' matches 'price' and 'booking' matches 'book'."""
-    for suffix in ("ings", "ing", "es", "s"):
+    if len(word) <= 3:
+        return word
+    for suffix in ("ings", "ing"):
         if len(word) > len(suffix) + 2 and word.endswith(suffix):
             return word[: -len(suffix)]
+    if word.endswith("ies") and len(word) > 4:
+        return word[:-3] + "y"
+    if word.endswith(("sses", "shes", "ches", "xes", "zes")):
+        return word[:-2]
+    if word.endswith("s") and not word.endswith("ss"):
+        return word[:-1]
     return word
 
 
@@ -58,7 +68,7 @@ class BM25Index:
         # Section titles are repeated (boosted) so "opening hours" finds the hours section first.
         self.doc_tokens = [tokenize(f"{c.section} {c.section} {c.section} {c.text}") for c in chunks]
         self.doc_freqs = [Counter(toks) for toks in self.doc_tokens]
-        self.avg_len = sum(len(t) for t in self.doc_tokens) / max(len(chunks), 1)
+        self.avg_len = sum(len(t) for t in self.doc_tokens) / max(len(chunks), 1) or 1.0
         self.idf = self._compute_idf()
 
     def _compute_idf(self):

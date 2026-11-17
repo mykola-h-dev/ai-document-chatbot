@@ -23,9 +23,20 @@ def load_dotenv(path=ROOT / ".env"):
 
 load_dotenv()
 
-_doc = pathlib.Path(os.environ.get("DOC_PATH", "sample_docs/maple-street-dental-guide.pdf"))
-DOC_PATH = str(_doc if _doc.is_absolute() else ROOT / _doc)  # relative paths are relative to the project
+def _path(value):
+    path = pathlib.Path(value)
+    return path if path.is_absolute() else ROOT / path  # relative paths are relative to the project
+
+
+DATA_DIR = _path(os.environ.get("DATA_DIR", "data"))              # documents, logs (created on start)
+SEED_DIR = _path(os.environ.get("SEED_DIR", "sample_docs"))       # copied into DATA_DIR/docs on first run
 BUSINESS_NAME = os.environ.get("BUSINESS_NAME", "Maple Street Dental")
 BUSINESS_CONTACT = os.environ.get("BUSINESS_CONTACT", "call 555-0142 or email hello@maplestreetdental.example")
 HOST = os.environ.get("HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
+
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")             # empty = admin only from this computer
+RATE_LIMIT_PER_MINUTE = int(os.environ.get("RATE_LIMIT_PER_MINUTE", "20"))
+ALLOWED_ORIGINS = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "*").split(",") if o.strip()]
+STREAM_DELAY_MS = int(os.environ.get("STREAM_DELAY_MS", "25"))    # offline mode "typing" speed
+TRUST_PROXY = os.environ.get("TRUST_PROXY", "") == "1"            # use X-Forwarded-For behind a proxy

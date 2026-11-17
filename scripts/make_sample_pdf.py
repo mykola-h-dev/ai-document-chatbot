@@ -13,7 +13,7 @@ import subprocess
 import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUTPUT = ROOT / "sample_docs" / "maple-street-dental-guide.pdf"
+OUTPUT = ROOT / "sample_docs" / "patient-guide.pdf"
 
 PAGE_BREAK = '<p style="page-break-before: always"></p>'
 
