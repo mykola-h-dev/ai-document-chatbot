@@ -2,6 +2,8 @@
 
 **A chat bubble you add to any website with one `<script>` tag. It answers visitor questions from your own documents (PDF, Word, Markdown, text, web pages), streams the reply, cites the exact page, and collects the visitor's email when the answer is not in the documents.**
 
+> **Live demo:** https://ai-document-chatbot-laeu.onrender.com/?autoplay — the chat bubble in the corner plays a short conversation, then you can ask your own questions *(free hosting: the first open after a quiet spell takes up to a minute while the server wakes up; fictional sample data, offline mode, no API keys)*
+
 ![Chat widget on a sample dental practice website, answering a follow-up question with a cited source](docs/screenshot.png)
 
 *Offline demo mode on a fictional dental practice. The visitor asks "Do you offer teeth whitening?" and then "How much is it?"; the bot understands the follow-up and quotes the price with a numbered citation. The source passage is expanded.*
